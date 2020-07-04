@@ -1,2 +1,6 @@
 # read DS/SS property
 import /efs/factory.prop
+
+# Miracast
+wlan.wfd.hdcp=disable 
+persist.sys.wfd.virtual=0
