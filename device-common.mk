@@ -242,9 +242,16 @@ PRODUCT_PACKAGES += \
     android.hardware.radio@1.4 \
     libxml2
 
-# SamsungDoze
+# Telephony
 PRODUCT_PACKAGES += \
-    SamsungDoze
+    telephony-common \
+    telephony-ext \
+    qti-telephony-hidl-wrapper \
+    qti_telephony_hidl_wrapper.xml \
+    qti-telephony-utils \
+    qti_telephony_utils.xml \
+    ims-ext-common \
+    ims_ext_common.xml
 
 # Seccomp filters
 PRODUCT_COPY_FILES += \
@@ -276,17 +283,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
-
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
-
-# Vendor security patch level
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.lineage.build.vendor_security_patch=2020-04-01
 
 # Vibrator
 PRODUCT_PACKAGES += \
