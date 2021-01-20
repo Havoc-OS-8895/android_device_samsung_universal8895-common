@@ -84,8 +84,9 @@ PRODUCT_COPY_FILES += \
 
 # Configstore
 PRODUCT_PACKAGES += \
-    android.hardware.configstore@1.0-impl \
-    android.hardware.configstore@1.0-service
+    android.hardware.configstore@1.1-impl \
+    android.hardware.configstore@1.1-service \
+    vndservicemanager
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -94,7 +95,7 @@ PRODUCT_PACKAGES += \
     libfwdlockengine \
     libdrmclearkeyplugin \
     android.hardware.drm@1.0-service \
-    android.hardware.drm@1.2-service.clearkey \
+    android.hardware.drm@1.3-service.clearkey \
     android.hardware.drm@1.0-impl
 
 # Fingerprint
@@ -121,10 +122,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-impl \
     android.hardware.health@2.0-service
-
-# HIDL Manifest
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/manifest.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml
 
 # HotwordEnrollement app permissions
 PRODUCT_COPY_FILES += \
@@ -243,15 +240,15 @@ PRODUCT_PACKAGES += \
     libxml2
 
 # Telephony
-PRODUCT_PACKAGES += \
-    telephony-common \
-    telephony-ext \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml \
-    qti-telephony-utils \
-    qti_telephony_utils.xml \
-    ims-ext-common \
-    ims_ext_common.xml
+#PRODUCT_PACKAGES += \
+#    telephony-common \
+#    telephony-ext \
+#    qti-telephony-hidl-wrapper \
+#    qti_telephony_hidl_wrapper.xml \
+#    qti-telephony-utils \
+#    qti_telephony_utils.xml \
+#    ims-ext-common \
+#    ims_ext_common.xml
 
 # Seccomp filters
 PRODUCT_COPY_FILES += \
@@ -305,6 +302,13 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
     android.hardware.wifi@1.0 \
     android.hardware.wifi@1.0-impl
+
+# HIDL
+PRODUCT_PACKAGES += \
+    libhidltransport \
+    libhidltransport.vendor \
+    libhwbinder \
+    libhwbinder.vendor
 
 # Properties
 -include $(LOCAL_PATH)/system_prop.mk

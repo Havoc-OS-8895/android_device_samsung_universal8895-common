@@ -17,6 +17,7 @@
 LOCAL_PATH := device/samsung/universal8895-common
 
 BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_PREBUILT_ELF_FILES := true
 
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
@@ -42,14 +43,16 @@ TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := exynos-m1
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := cortex-a53
 
 # Secondary Architecture
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := cortex-a53.a57
+TARGET_2ND_CPU_VARIANT := generic
+TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53.a57
 
 # Binder
 TARGET_USES_64_BIT_BINDER := true
@@ -96,9 +99,6 @@ TARGET_EXCLUDES_AUDIOFX := true
 
 # Vendor separation
 TARGET_COPY_OUT_VENDOR := system/vendor
-
-# Properties
-TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 
 # Device Tree
 BOARD_USES_DT := true
@@ -156,3 +156,10 @@ TARGET_LD_SHIM_LIBS += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
+
+# HIDL
+PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
+
+# HIDL Manifest
+DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/manifest.xml
+    
